@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Services;
 using BudgetAppModel;
+using GenericErrorHandler;
 
 namespace BudgetAppWebServiceHost
 {
@@ -16,33 +17,42 @@ namespace BudgetAppWebServiceHost
         /// This service will return all detailed information about the category
         /// </summary>
         /// <param name="categoryId">This is the category Id required for the category search</param>
-        /// <returns>The requested category information. In case that nothing has been found, the Category will return null</returns>
+        /// <returns>The requested category information. In case that nothing has been found, the Category will return null with the response error</returns>
         [WebMethod]
-        public Category GetCategory(int categoryId)
+        public GenericErrorResponse<Category> GetCategory(int categoryId)
         {
-            return new Category { CategoryId = categoryId, CategoryName = "Vegetables", CategoryImageUrl = "myVeggies.jpg", 
-                                  CategoryDescription = "All vegetable products may go here", CategoryCreationDate = System.DateTime.Now };
+            return new GenericErrorResponse<Category> { 
+                ResponseItem = new Category {
+                    CategoryId = categoryId,
+                    CategoryName = "Vegetables",
+                    CategoryImageUrl = "myVeggies.jpg",
+                    CategoryDescription = "All vegetable products may go here",
+                    CategoryCreationDate = System.DateTime.Now
+                }
+            };
         }
 
         /// <summary>
         /// This service will return a list of all Categories required by the budget App, in order to define the product item
         /// </summary>
-        /// <returns>A list of all the categories to be selected by the client, in order to clasify the expenses</returns>
+        /// <returns>A list of all the categories to be selected by the client, in order to clasify the expenses. 
+        /// In case that nothing has been found, the Category List will return null with the corresponding response error</returns>
         [WebMethod]
-        public List<Category> GetAllCategories() 
+        public GenericErrorResponse<List<Category>> GetAllCategories() 
         {
-            return new List<Category>() 
-            {
-                new Category { CategoryId = 1, CategoryName = "Vegetables", CategoryImageUrl = "myVeggies.jpg",
-                               CategoryDescription = "All vegetable products may go here", CategoryCreationDate = System.DateTime.Now },
-                new Category { CategoryId = 2, CategoryName = "Fruits", CategoryImageUrl = "myFruits.jpg" },
-                new Category { CategoryId = 3, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
-                new Category { CategoryId = 4, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
-                new Category { CategoryId = 5, CategoryName = "Cleaning", CategoryImageUrl = "myCleaning.jpg" },
-                new Category { CategoryId = 6, CategoryName = "Books", CategoryImageUrl = "myBooks.jpg" },
-                new Category { CategoryId = 7, CategoryName = "Toys", CategoryImageUrl = "myToys.jpg" },
-                new Category { CategoryId = 8, CategoryName = "Restaurants", CategoryImageUrl = "myToys.jpg" },
-            };
+            return new GenericErrorResponse<List<Category>> {
+             ResponseItem = new List<Category>(){
+                    new Category { CategoryId = 1, CategoryName = "Vegetables", CategoryImageUrl = "myVeggies.jpg",
+                                   CategoryDescription = "All vegetable products may go here", CategoryCreationDate = System.DateTime.Now },
+                    new Category { CategoryId = 2, CategoryName = "Fruits", CategoryImageUrl = "myFruits.jpg" },
+                    new Category { CategoryId = 3, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
+                    new Category { CategoryId = 4, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
+                    new Category { CategoryId = 5, CategoryName = "Cleaning", CategoryImageUrl = "myCleaning.jpg" },
+                    new Category { CategoryId = 6, CategoryName = "Books", CategoryImageUrl = "myBooks.jpg" },
+                    new Category { CategoryId = 7, CategoryName = "Toys", CategoryImageUrl = "myToys.jpg" },
+                    new Category { CategoryId = 8, CategoryName = "Restaurants", CategoryImageUrl = "myToys.jpg" },
+                }
+            }; 
         }
 
         /// <summary>
@@ -51,12 +61,12 @@ namespace BudgetAppWebServiceHost
         /// <param name="category">The new category to be added</param>
         /// <returns>
         /// 0 = Adding result was sucessful
-        /// >0 = Adding result had errors.
+        /// > 0 = Adding result had errors.
         /// </returns>
         [WebMethod]
-        public int AddCategory(Category category)
+        public GenericErrorResponse AddCategory(Category category)
         {
-            return 0;
+            return new GenericErrorResponse();
         }
 
         /// <summary>
@@ -65,12 +75,12 @@ namespace BudgetAppWebServiceHost
         /// <param name="category">The existing category to be updated (Based on the category ID)</param>
         /// <returns>
         /// 0 = Update result was sucessful
-        /// >0 = Update result had errors.
+        /// > 0 = Update result had errors.
         /// </returns>
         [WebMethod]
-        public int UpdateCategory(Category category) 
+        public GenericErrorResponse UpdateCategory(Category category) 
         {
-            return 0;
+            return new GenericErrorResponse();
         }
 
         /// <summary>
@@ -82,9 +92,9 @@ namespace BudgetAppWebServiceHost
         /// >0 = Delete result had errors.
         /// </returns>
         [WebMethod]
-        public int DeleteCategory(int categoryId)
+        public GenericErrorResponse DeleteCategory(int categoryId)
         {
-            return 0;
+            return new GenericErrorResponse();
         }
 
     }

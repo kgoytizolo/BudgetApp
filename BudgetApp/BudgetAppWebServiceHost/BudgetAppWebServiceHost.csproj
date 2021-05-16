@@ -87,6 +87,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GENERIC_ERROR_HANDLER\GenericErrorHandler\GenericErrorHandler.csproj">
+      <Project>{e8e4789a-6072-4257-921c-5cf5d856b590}</Project>
+      <Name>GenericErrorHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BudgetAppModel\BudgetAppModel.csproj">
       <Project>{deee857d-8c30-4905-8573-05f8411a0dc9}</Project>
       <Name>BudgetAppModel</Name>
