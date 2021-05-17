@@ -3,13 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppConsole", "BudgetAppConsole\BudgetAppConsole.csproj", "{86B716FD-0756-4FA0-9C92-93D3DC2B0765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetAppConsole", "BudgetAppConsole\BudgetAppConsole.csproj", "{86B716FD-0756-4FA0-9C92-93D3DC2B0765}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppWebServiceHost", "BudgetAppWebServiceHost\BudgetAppWebServiceHost.csproj", "{FFBB8C31-63AA-4FF9-BFA7-1D63A330BC64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppModel", "BudgetAppModel\BudgetAppModel.csproj", "{DEEE857D-8C30-4905-8573-05F8411A0DC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericErrorHandler", "..\..\GENERIC_ERROR_HANDLER\GenericErrorHandler\GenericErrorHandler.csproj", "{E8E4789A-6072-4257-921C-5CF5D856B590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppRepository", "BudgetAppRepository\BudgetAppRepository.csproj", "{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppDataAccess", "BudgetAppDataAccess\BudgetAppDataAccess.csproj", "{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppBusiness", "BudgetAppBusiness\BudgetAppBusiness.csproj", "{848372C3-A68E-4F3C-9696-35E02CF2604A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Models", "0. Models", "{220EFE49-5044-438B-81D2-66A9DAB2FA66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Complementary components", "1. Complementary components", "{95DE66A9-B7AF-4203-A4D1-037B54FC0C61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Data Access Layer", "2. Data Access Layer", "{63E6A347-CAC1-4B51-832B-24CBBFC1926C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Repository Layer", "3. Repository Layer", "{30CDA865-DF5C-4879-8FAD-F3A76606CEFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Service Layer - Host", "4. Service Layer - Host", "{68152ADA-9130-461C-BDC1-BEDBB99EBB8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Business Layer - Client", "5. Business Layer - Client", "{DB0C49E8-9467-4B34-A70C-4FDA2A4E3C78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +51,29 @@ Global
 		{E8E4789A-6072-4257-921C-5CF5D856B590}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8E4789A-6072-4257-921C-5CF5D856B590}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8E4789A-6072-4257-921C-5CF5D856B590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{848372C3-A68E-4F3C-9696-35E02CF2604A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{848372C3-A68E-4F3C-9696-35E02CF2604A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848372C3-A68E-4F3C-9696-35E02CF2604A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{848372C3-A68E-4F3C-9696-35E02CF2604A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFBB8C31-63AA-4FF9-BFA7-1D63A330BC64} = {68152ADA-9130-461C-BDC1-BEDBB99EBB8D}
+		{DEEE857D-8C30-4905-8573-05F8411A0DC9} = {220EFE49-5044-438B-81D2-66A9DAB2FA66}
+		{E8E4789A-6072-4257-921C-5CF5D856B590} = {95DE66A9-B7AF-4203-A4D1-037B54FC0C61}
+		{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F} = {30CDA865-DF5C-4879-8FAD-F3A76606CEFE}
+		{2D1AA98A-B8CC-4FCD-B5A0-B0BF9ABCBDB5} = {63E6A347-CAC1-4B51-832B-24CBBFC1926C}
+		{848372C3-A68E-4F3C-9696-35E02CF2604A} = {DB0C49E8-9467-4B34-A70C-4FDA2A4E3C78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01D62C42-F68E-4702-97AC-BCF9BD56F7BF}

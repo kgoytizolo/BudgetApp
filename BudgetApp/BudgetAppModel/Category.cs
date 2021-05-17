@@ -8,5 +8,7 @@
         public string CategoryImageUrl { get; set; }
         public System.DateTime CategoryCreationDate { get; set; }
         public System.DateTime CategoryUpdateDate { get; set; }
+
+        public Category() { }
     }
 }

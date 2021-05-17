@@ -1,18 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Web.Services;
 using BudgetAppModel;
+using BudgetAppWebServiceHost.Services.Mocks;
 using GenericErrorHandler;
+using catService = BudgetAppWebServiceHost.Services;
 
 namespace BudgetAppWebServiceHost
 {
     /// <summary>
     /// This ASMX endpoint will allow to get many Categories methods to be consumed by several applications
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://keynimeSolutions.io/services")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     public class CategoryService : System.Web.Services.WebService
     {
+        //catService.CategoryService _categoryService;
+        CategoryServiceMock _categoryService;
+
+        public CategoryService() 
+        {
+            //_categoryService = new catService.CategoryService();
+            _categoryService = new CategoryServiceMock();
+        }
+
         /// <summary>
         /// This service will return all detailed information about the category
         /// </summary>
@@ -21,15 +32,7 @@ namespace BudgetAppWebServiceHost
         [WebMethod]
         public GenericErrorResponse<Category> GetCategory(int categoryId)
         {
-            return new GenericErrorResponse<Category> { 
-                ResponseItem = new Category {
-                    CategoryId = categoryId,
-                    CategoryName = "Vegetables",
-                    CategoryImageUrl = "myVeggies.jpg",
-                    CategoryDescription = "All vegetable products may go here",
-                    CategoryCreationDate = System.DateTime.Now
-                }
-            };
+            return _categoryService.GetCategory(categoryId);
         }
 
         /// <summary>
@@ -40,19 +43,7 @@ namespace BudgetAppWebServiceHost
         [WebMethod]
         public GenericErrorResponse<List<Category>> GetAllCategories() 
         {
-            return new GenericErrorResponse<List<Category>> {
-             ResponseItem = new List<Category>(){
-                    new Category { CategoryId = 1, CategoryName = "Vegetables", CategoryImageUrl = "myVeggies.jpg",
-                                   CategoryDescription = "All vegetable products may go here", CategoryCreationDate = System.DateTime.Now },
-                    new Category { CategoryId = 2, CategoryName = "Fruits", CategoryImageUrl = "myFruits.jpg" },
-                    new Category { CategoryId = 3, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
-                    new Category { CategoryId = 4, CategoryName = "Meat", CategoryImageUrl = "myMeats.jpg" },
-                    new Category { CategoryId = 5, CategoryName = "Cleaning", CategoryImageUrl = "myCleaning.jpg" },
-                    new Category { CategoryId = 6, CategoryName = "Books", CategoryImageUrl = "myBooks.jpg" },
-                    new Category { CategoryId = 7, CategoryName = "Toys", CategoryImageUrl = "myToys.jpg" },
-                    new Category { CategoryId = 8, CategoryName = "Restaurants", CategoryImageUrl = "myToys.jpg" },
-                }
-            }; 
+            return _categoryService.GetAllCategories();
         }
 
         /// <summary>
@@ -66,7 +57,7 @@ namespace BudgetAppWebServiceHost
         [WebMethod]
         public GenericErrorResponse AddCategory(Category category)
         {
-            return new GenericErrorResponse();
+            return _categoryService.AddCategory(category);
         }
 
         /// <summary>
@@ -80,7 +71,7 @@ namespace BudgetAppWebServiceHost
         [WebMethod]
         public GenericErrorResponse UpdateCategory(Category category) 
         {
-            return new GenericErrorResponse();
+            return _categoryService.UpdateCategory(category);
         }
 
         /// <summary>
@@ -89,12 +80,12 @@ namespace BudgetAppWebServiceHost
         /// <param name="categoryId">The existing category to be deleted (Based on the category ID)</param>
         /// <returns>
         /// 0 = Delete result was sucessful
-        /// >0 = Delete result had errors.
+        /// > 0 = Delete result had errors.
         /// </returns>
         [WebMethod]
         public GenericErrorResponse DeleteCategory(int categoryId)
         {
-            return new GenericErrorResponse();
+            return _categoryService.DeleteCategory(categoryId);
         }
 
     }

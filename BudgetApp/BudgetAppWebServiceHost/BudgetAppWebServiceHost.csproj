@@ -75,7 +75,10 @@
       <DependentUpon>CategoryService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\Mocks\CategoryServiceMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
