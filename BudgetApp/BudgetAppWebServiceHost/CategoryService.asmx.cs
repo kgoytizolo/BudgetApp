@@ -13,7 +13,7 @@ namespace BudgetAppWebServiceHost
     [WebService(Namespace = "http://keynimeSolutions.io/services")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    public class CategoryService : System.Web.Services.WebService
+    public class CategoryService : WebService
     {
         //catService.CategoryService _categoryService;
         CategoryServiceMock _categoryService;

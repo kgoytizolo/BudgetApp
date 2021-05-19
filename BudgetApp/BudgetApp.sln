@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Data Access Layer", "2. 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Repository Layer", "3. Repository Layer", "{30CDA865-DF5C-4879-8FAD-F3A76606CEFE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Service Layer - Host", "4. Service Layer - Host", "{68152ADA-9130-461C-BDC1-BEDBB99EBB8D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Service Layer - Host (ASMX)", "4. Service Layer - Host (ASMX)", "{68152ADA-9130-461C-BDC1-BEDBB99EBB8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Business Layer - Client", "5. Business Layer - Client", "{DB0C49E8-9467-4B34-A70C-4FDA2A4E3C78}"
 EndProject

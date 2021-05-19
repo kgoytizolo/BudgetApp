@@ -98,6 +98,10 @@
       <Project>{deee857d-8c30-4905-8573-05f8411a0dc9}</Project>
       <Name>BudgetAppModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BudgetAppRepository\BudgetAppRepository.csproj">
+      <Project>{6d92c51a-9111-4d10-bb2b-2a7139d2ad5f}</Project>
+      <Name>BudgetAppRepository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
