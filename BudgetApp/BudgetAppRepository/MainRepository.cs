@@ -15,9 +15,9 @@ namespace BudgetAppRepository
             _budgetAppDao = new BudgetAppDAOMock<T>(_repositoryItem);
         }
 
-        public void CreateItem(ref T item)
+        public void CreateItem(T item)
         {
-            _budgetAppDao.CreateItem(ref item);
+            _budgetAppDao.CreateItem(item);
         }
 
         public void DeleteItem(int itemId)
@@ -30,9 +30,9 @@ namespace BudgetAppRepository
             _budgetAppDao.GetItems(itemId, ref listOfItems);
         }
 
-        public void UpdateItem(ref T item)
+        public void UpdateItem(T item)
         {
-            _budgetAppDao.UpdateItem(ref item);
+            _budgetAppDao.UpdateItem(item);
         }
     }
 }

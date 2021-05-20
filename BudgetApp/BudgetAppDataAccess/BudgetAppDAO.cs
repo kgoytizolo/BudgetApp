@@ -13,7 +13,7 @@ namespace BudgetAppDataAccess
             _daoItem = daoItem;
         }
 
-        public void CreateItem(ref Item item)
+        public void CreateItem(Item item)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace BudgetAppDataAccess
             throw new NotImplementedException();
         }
 
-        public void UpdateItem(ref Item item)
+        public void UpdateItem(Item item)
         {
             throw new NotImplementedException();
         }

@@ -5,8 +5,8 @@ namespace BudgetAppDataAccess.Interface
     public interface IBudgetAppDAO<Item> where Item : class
     {
         void GetItems(int itemId, ref IEnumerable<Item> input);
-        void CreateItem(ref Item item);
-        void UpdateItem(ref Item item);
+        void CreateItem(Item item);
+        void UpdateItem(Item item);
         void DeleteItem(int itemId);
     }
 }

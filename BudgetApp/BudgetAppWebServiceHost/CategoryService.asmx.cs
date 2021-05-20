@@ -15,13 +15,13 @@ namespace BudgetAppWebServiceHost
     [System.ComponentModel.ToolboxItem(false)]
     public class CategoryService : WebService
     {
-        //catService.CategoryService _categoryService;
-        CategoryServiceMock _categoryService;
+        //CategoryServiceMock _categoryService;
+        catService.CategoryService _categoryService;
 
         public CategoryService() 
         {
-            //_categoryService = new catService.CategoryService();
-            _categoryService = new CategoryServiceMock();
+            //_categoryService = new CategoryServiceMock();
+            _categoryService = new catService.CategoryService();
         }
 
         /// <summary>

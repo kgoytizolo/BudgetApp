@@ -16,9 +16,9 @@ namespace BudgetAppDataAccess.Mocks
             _daoItem = daoItem;
         }
 
-        public void CreateItem(ref Item item)
+        public void CreateItem(Item item)
         {
-            if (_daoItem.GetType() == typeof(Category)) item = GetCategory(9, false) as Item;
+            if (_daoItem.GetType() == typeof(Category)) item = GetCategory(9, false) as Item;       //Code remains in case of applying generic ref variable
             return;
         }
 
@@ -33,7 +33,7 @@ namespace BudgetAppDataAccess.Mocks
             else return;
         }
 
-        public void UpdateItem(ref Item item)
+        public void UpdateItem(Item item)                                                           //Code remains in case of applying generic ref variable
         {
             if (_daoItem.GetType() == typeof(Category)) {
                 var categoryToUpdate = item as Category;
@@ -81,7 +81,7 @@ namespace BudgetAppDataAccess.Mocks
             newDataSet.DataSetName = dataSetName;
             DataTable newDataSetTable = new DataTable();                                    
             SetupTable(dataSetTableName, ref newDataSetTable);                              //Setting table + columns + rows
-            newDataSet.Tables.Add(dataSetTableName);                                        //Final dataSet settings
+            newDataSet.Tables.Add(newDataSetTable);                                         //Final dataSet settings
         }
 
         private void SetupTable(string dataSetTable, ref DataTable newDataSetTable) 
@@ -145,12 +145,14 @@ namespace BudgetAppDataAccess.Mocks
 
         private void AddRows(object[] item, ref DataTable newDataSetTable) 
         {
+            var tempDataRow = newDataSetTable.NewRow();
             for (int i = 0; i < newDataSetTable.Columns.Count; i++) 
             {
-                if (newDataSetTable.Columns[i].DataType == typeof(string)) newDataSetTable.NewRow().ItemArray[i] = (string)item[i];
-                else if (newDataSetTable.Columns[i].DataType == typeof(int)) newDataSetTable.NewRow().ItemArray[i] = (int)item[i];
-                else if (newDataSetTable.Columns[i].DataType == typeof(DateTime)) newDataSetTable.NewRow().ItemArray[i] = (DateTime)item[i];
+                if (newDataSetTable.Columns[i].DataType == typeof(string)) tempDataRow[i] = (string)item[i];
+                else if (newDataSetTable.Columns[i].DataType == typeof(int)) tempDataRow[i] = (int)item[i];
+                else if (newDataSetTable.Columns[i].DataType == typeof(DateTime)) tempDataRow[i] = (DateTime)item[i];
             }
+            newDataSetTable.Rows.Add(tempDataRow);
         }
 
     }
