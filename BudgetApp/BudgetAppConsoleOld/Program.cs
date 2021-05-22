@@ -4,7 +4,7 @@ using GenericErrorHandler;
 using BudgetAppBusiness;
 using System.Collections.Generic;
 
-namespace BudgetAppConsole
+namespace BudgetAppConsoleOld
 {
     class Program
     {
@@ -19,10 +19,13 @@ namespace BudgetAppConsole
             BusinessCategory myCategories = new BusinessCategory();                                     //Then, we are going to implement IOC and DI later
             GenericErrorResponse<List<Category>> serviceResponse = myCategories.GetAllCategories();     //We get all the categories here
             if (serviceResponse.ErrorId > 0) serviceResponse.ShowErrorMessageInConsole();
-            else {
+            else
+            {
                 var listOfCategories = serviceResponse.ResponseItem;
                 listOfCategories.ForEach(cat => WriteLine($"Category: Id = {cat.CategoryId}, Name = {cat.CategoryName}, Description = {cat.CategoryDescription} "));
             };
+            WriteLine();
+            WriteLine("Press any key to exit...");
             string continueToNextAction = ReadLine();
         }
     }

@@ -3,6 +3,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>BudgetAppConsole.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GENERIC_ERROR_HANDLER\GenericErrorHandler\GenericErrorHandler.csproj" />
+    <ProjectReference Include="..\BudgetAppBusiness\BudgetAppBusiness.csproj" />
+    <ProjectReference Include="..\BudgetAppModel\BudgetAppModel.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D92C51A-9111-4D10-BB2B-2A7139D2AD5F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BudgetAppRepository</RootNamespace>
-    <AssemblyName>BudgetAppRepository</AssemblyName>
+    <ProjectGuid>{607AEB56-D88A-42FD-ADB0-D4402AD34E89}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BudgetAppConsoleOld</RootNamespace>
+    <AssemblyName>BudgetAppConsoleOld</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,14 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainRepository.cs" />
-    <Compile Include="Interfaces\IMainRepository.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BudgetAppDataAccess\BudgetAppDataAccess.csproj">
-      <Project>{2d1aa98a-b8cc-4fcd-b5a0-b0bf9abcbdb5}</Project>
-      <Name>BudgetAppDataAccess</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GENERIC_ERROR_HANDLER\GenericErrorHandler\GenericErrorHandler.csproj">
+      <Project>{e8e4789a-6072-4257-921c-5cf5d856b590}</Project>
+      <Name>GenericErrorHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BudgetAppBusiness\BudgetAppBusiness.csproj">
+      <Project>{848372c3-a68e-4f3c-9696-35e02cf2604a}</Project>
+      <Name>BudgetAppBusiness</Name>
     </ProjectReference>
     <ProjectReference Include="..\BudgetAppModel\BudgetAppModel.csproj">
       <Project>{deee857d-8c30-4905-8573-05f8411a0dc9}</Project>
